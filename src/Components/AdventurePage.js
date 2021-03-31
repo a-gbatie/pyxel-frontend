@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AdventureCollection from "../Components/AdventureCollection.js";
 import Search from "../Components/Search";
-import AdventureForm from "../Components/AdventureForm";
+import AdventureForm from "..Components/AdventureForm";
 
 const ADV = "http://localhost:3000/adventures";
 
