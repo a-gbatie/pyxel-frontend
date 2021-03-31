@@ -7,6 +7,7 @@ class AdventureCollection extends React.Component {
         return this.props.adventures.map(adventure => <AdventureCard 
           adventure={adventure}  
           key={adventure.id}
+          likeAdventure={this.props.likeAdventure}
         />)
     }
 

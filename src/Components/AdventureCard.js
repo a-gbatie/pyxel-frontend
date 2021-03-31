@@ -16,9 +16,19 @@ export default class AdventureCard extends Component {
                         <p>{hashtags}</p>
                         <h4>{description}</h4>
                         <h4>{likes}</h4>
+                        <button 
+                            color="red"
+                            content="Like"
+                            icon="heart"
+                            onClick={() => this.props.likeAdventure()}
+                        >Like
+                        </button>
                     </div>
                 </ul>  
             </div>
         )
     }
 }
+
+
+
