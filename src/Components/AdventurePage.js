@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AdventureCollection from "./AdventureCollection.js";
-import Search from "./Search";
+// import Search from "./Search";
 import AdventureForm from "./AdventureForm";
 
 const ADV = "http://localhost:3000/adventures";
@@ -60,7 +60,7 @@ class AdventurePage extends Component {
 
   likeAdventure = (adv) => {
 
-    let newAdv = adv.likes +1  
+    let newAdv = adv.likes++  
 
     fetch(ADV + `/${adv.id}`, {
       method: "PATCH",
@@ -85,7 +85,7 @@ class AdventurePage extends Component {
     return (
       <div>
         <AdventureForm submitNew={this.submitNew} />
-        <Search searchAdv={this.searchAdv} />
+        {/* <Search searchAdv={this.searchAdv} /> */}
         <AdventureCollection
           adventures={this.state.searchedPost}
           likeAdventure={this.likeAdventure}
