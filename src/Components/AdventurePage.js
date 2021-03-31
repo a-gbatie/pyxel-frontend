@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AdventureCollection from "./AdventureCollection.js";
-import Search from "./Search";
+// import Search from "./Search";
 import AdventureForm from "./AdventureForm";
 
 const ADV = "http://localhost:3000/adventures";
@@ -29,6 +29,7 @@ class AdventurePage extends Component {
     this.setState({ searchedPost: searchedData });
   };
 
+  //not working
   submitNew = (e, advData) => {
     e.preventDefault();
     const { title, photo, location, hashtags, description } = advData;
@@ -59,7 +60,7 @@ class AdventurePage extends Component {
 
   likeAdventure = (adv) => {
 
-    let newAdv = adv.likes +1  
+    let newAdv = adv.likes++  
 
     fetch(ADV + `/${adv.id}`, {
       method: "PATCH",
@@ -70,16 +71,21 @@ class AdventurePage extends Component {
       body: JSON.stringify({ likes: newAdv }),
     })
       .then((res) => res.json())
-      .then((like) => {
-        console.log(like);
-      });
+      .then(newLike => {
+        //   this.setState({
+        //       adventurePost: 
+        //   })
+      })
+      .then(console.log(this.state.adventurePost))
   };
+
 //option, shift, f
+
   render() {
     return (
       <div>
         <AdventureForm submitNew={this.submitNew} />
-        <Search searchAdv={this.searchAdv} />
+        {/* <Search searchAdv={this.searchAdv} /> */}
         <AdventureCollection
           adventures={this.state.searchedPost}
           likeAdventure={this.likeAdventure}
