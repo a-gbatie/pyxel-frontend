@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import AdventureCollection from "../Components/AdventureCollection.js";
-import Search from "../Components/Search";
-import AdventureForm from "../Components/AdventureForm";
+import AdventureCollection from "./AdventureCollection.js";
+import Search from "./Search";
+import AdventureForm from "./AdventureForm";
 
 const ADV = "http://localhost:3000/adventures";
 
@@ -29,6 +29,7 @@ class AdventurePage extends Component {
     this.setState({ searchedPost: searchedData });
   };
 
+  //not working
   submitNew = (e, advData) => {
     e.preventDefault();
     const { title, photo, location, hashtags, description } = advData;
@@ -70,11 +71,16 @@ class AdventurePage extends Component {
       body: JSON.stringify({ likes: newAdv }),
     })
       .then((res) => res.json())
-      .then((like) => {
-        console.log(like);
-      });
+      .then(newLike => {
+          this.setState({
+              adventurePost: 
+          })
+      })
+      .then(console.log(this.state.adventurePost))
   };
+
 //option, shift, f
+
   render() {
     return (
       <div>
