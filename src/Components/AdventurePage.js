@@ -72,9 +72,9 @@ class AdventurePage extends Component {
     })
       .then((res) => res.json())
       .then(newLike => {
-          this.setState({
-              adventurePost: 
-          })
+        //   this.setState({
+        //       adventurePost: 
+        //   })
       })
       .then(console.log(this.state.adventurePost))
   };
