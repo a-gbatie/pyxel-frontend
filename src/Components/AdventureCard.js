@@ -20,7 +20,7 @@ export default class AdventureCard extends Component {
                             color="red"
                             content="Like"
                             icon="heart"
-                            onClick={() => this.props.likeAdventure()}
+                            onClick={() => this.props.likeAdventure(this.props.adventure)}
                         >Like
                         </button>
                     </div>
@@ -29,6 +29,5 @@ export default class AdventureCard extends Component {
         )
     }
 }
-
 
 
