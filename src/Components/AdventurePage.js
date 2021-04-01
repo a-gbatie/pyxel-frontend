@@ -30,34 +30,33 @@ class AdventurePage extends Component {
     this.setState({ searchedPost: searchedData });
   };
 
-  //not working
+
   submitNew = (e, advData) => {
-      console.log(advData)
-    // e.preventDefault();
-    // const { title, photo, location, hashtags, description } = advData;
-    // const newAdv = {
-    //   title,
-    //   photo,
-    //   location,
-    //   hashtags,
-    //   description,
-    // };
-    // e.target.reset();
-    // fetch("http://localhost:3000/adventures", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Accept: "application/json",
-    //   },
-    //   body: JSON.stringify(newAdv),
-    // })
-    //   .then((res) => res.json())
-    //   .then((newAdv) => {
-    //     this.setState({
-    //       adventurePost: [newAdv, ...this.state.adventurePost],
-    //       searchedPost: [newAdv, ...this.state.searchedPost],
-    //     });
-    //   });
+    e.preventDefault();
+    const { title, photo, location, hashtags, description } = advData;
+    const newAdv = {
+      title,
+      photo,
+      location,
+      hashtags,
+      description,
+    };
+    e.target.reset();
+    fetch("http://localhost:3000/adventures", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(newAdv),
+    })
+      .then((res) => res.json())
+      .then((newAdv) => {
+        this.setState({
+          adventurePost: [newAdv, ...this.state.adventurePost],
+          searchedPost: [newAdv, ...this.state.searchedPost],
+        });
+      });
   };
 
   likeAdventure = (adv) => {
@@ -73,9 +72,24 @@ class AdventurePage extends Component {
       body: JSON.stringify({ likes: newAdv }),
     })
       .then((res) => res.json())
-      .then((res) => {
+      .then((newData) => {
+        const newSearch = this.state.searchedPost.map(post => {
+          if(post.id === newData.id){
+            return newData
+          } else {
+            return post
+          } 
+        })
+        const newAdv = this.state.adventurePost.map(post => {
+          if(post.id === newData.id){
+            return newData
+          } else {
+            return post
+          } 
+        })
           this.setState({
-              adventurePost: res
+              adventurePost: newAdv,
+              searchedPost: newSearch
           })
       })
   };
