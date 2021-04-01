@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import AdventurePage from "./components/AdventurePage.js"
+import AdventurePage from "./Components/AdventurePage.js"
 import './App.css';
 
 class App extends Component  {
