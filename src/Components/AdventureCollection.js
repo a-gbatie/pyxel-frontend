@@ -8,6 +8,7 @@ class AdventureCollection extends React.Component {
           adventure={adventure}  
           key={adventure.id}
           likeAdventure={this.props.likeAdventure}
+          deleteAdv={this.props.deleteAdv}
         />)
     }
 

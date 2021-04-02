@@ -20,10 +20,6 @@ class AdventureForm extends React.Component {
         })
     }
 
-    //I believe we would have to create state and set it to the name of each attribute of the adventure 
-    //we would also need a handleChange?
-    //in our submit new we would then pass down the state. 
-
     render() {
         return (
             <div>
@@ -54,5 +50,3 @@ class AdventureForm extends React.Component {
 
 export default AdventureForm;
 
-
-//(e, advData) => this.props.submitNew(e, advData)

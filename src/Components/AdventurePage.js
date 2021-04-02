@@ -9,7 +9,7 @@ class AdventurePage extends Component {
   state = {
     adventurePost: [],
     searchedPost: [],
-    likes: 0 
+    likes: 0,
   };
 
   componentDidMount() {
@@ -29,7 +29,6 @@ class AdventurePage extends Component {
       : (searchedData = this.state.adventurePost);
     this.setState({ searchedPost: searchedData });
   };
-
 
   submitNew = (e, advData) => {
     e.preventDefault();
@@ -60,8 +59,7 @@ class AdventurePage extends Component {
   };
 
   likeAdventure = (adv) => {
-
-    let newAdv = adv.likes +1
+    let newAdv = adv.likes + 1;
 
     fetch(ADV + `/${adv.id}`, {
       method: "PATCH",
@@ -73,28 +71,36 @@ class AdventurePage extends Component {
     })
       .then((res) => res.json())
       .then((newData) => {
-        const newSearch = this.state.searchedPost.map(post => {
-          if(post.id === newData.id){
-            return newData
+        const newSearch = this.state.searchedPost.map((post) => {
+          if (post.id === newData.id) {
+            return newData;
           } else {
-            return post
-          } 
-        })
-        const newAdv = this.state.adventurePost.map(post => {
-          if(post.id === newData.id){
-            return newData
+            return post;
+          }
+        });
+        const newAdv = this.state.adventurePost.map((post) => {
+          if (post.id === newData.id) {
+            return newData;
           } else {
-            return post
-          } 
-        })
-          this.setState({
-              adventurePost: newAdv,
-              searchedPost: newSearch
-          })
-      })
+            return post;
+          }
+        });
+        this.setState({
+          adventurePost: newAdv,
+          searchedPost: newSearch,
+        });
+      });
   };
 
-//option, shift, f
+  //option, shift, f
+
+  deleteAdv = (adv) => {
+    fetch(ADV + `/${adv.id}`, {
+      method: "DELETE",
+    })
+    .then((res) => res.json())
+    
+  };
 
   render() {
     return (
@@ -104,6 +110,7 @@ class AdventurePage extends Component {
         <AdventureCollection
           adventures={this.state.searchedPost}
           likeAdventure={this.likeAdventure}
+          deleteAdv={this.deleteAdv}
         />
       </div>
     );
