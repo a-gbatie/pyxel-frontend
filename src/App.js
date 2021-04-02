@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import AdventurePage from "./Components/AdventurePage.js";
+import AdventurePage from "./components/AdventurePage.js";
 import "./App.css";
-import Navbar from "./Components/NavBar.js";
+import Navbar from "./components/NavBar.js";
 import { Switch, Route, withRouter } from "react-router-dom";
 
 class App extends Component {

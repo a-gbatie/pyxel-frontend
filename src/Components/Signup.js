@@ -1,5 +1,7 @@
 import React from 'react'
-
+import { Form, Button, Grid } from 'semantic-ui-react'
+import Card from 'react-bootstrap/Card'
+import './Signup.css';
 
 
 class Signup extends React.Component {
@@ -20,9 +22,55 @@ class Signup extends React.Component {
     }
 
     render() {
+        const { name, hometown, bio, age} = this.state
         return (
             <div>
-                <form onSubmit={(e) => {
+                <Grid >
+                <Grid.Column className="sign-up-column">
+                <Card fluid>
+                <Card.Header className="create-signup-header">Create New User Here</Card.Header>
+                <br/>
+                    <Form unstackable onSubmit={this.onSubmit}>
+                        <Form.Group widths={2}>
+                        <Form.Input
+                            label='Name:'
+                            placeholder='Enter a Name'
+                            name='name'
+                            value={name}
+                            onChange={this.handleChange}
+                        />
+                        <Form.Input
+                            label='Hometown:'
+                            placeholder='Enter a Hometown'
+                            name='hometown'
+                            value={hometown}
+                            onChange={this.handleChange}
+                        />
+                        </Form.Group>
+
+                        <Form.Group widths={2}>
+                        <Form.Input
+                            label='Bio:'
+                            placeholder='Enter a Bio'
+                            name='bio'
+                            value={bio}
+                            onChange={this.handleChange}
+                            />
+                            <Form.Input
+                                label='Age:'
+                                type='number'
+                                placeholder='Enter Age'
+                                name='age'
+                                value={age}
+                                onChange={this.handleChange}
+                            />
+                            </Form.Group>
+                        <Button type='submit'>Submit</Button>
+                    </Form>
+                </Card>
+                </Grid.Column>
+            </Grid>
+                {/* <form onSubmit={(e) => {
                     this.props.createUser(e, this.state)}}>
                     
                     <label>UserName:</label>
@@ -38,7 +86,7 @@ class Signup extends React.Component {
                     <input type="number" name="age" onChange={this.handleChange}/> 
 
                     <input type="submit" value="Submit" />
-                </form> 
+                </form>  */}
             </div>
         )
     }

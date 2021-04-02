@@ -6,6 +6,7 @@ import './Form.css';
 
 
 
+
 class AdventureForm extends React.Component {
 
 
@@ -17,6 +18,12 @@ class AdventureForm extends React.Component {
         hashtags: ''
     }
 
+    onSubmit = (e) => {
+        this.props.submitNew(e, this.state)
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
 
     handleChange = (e) => {
         this.setState({
@@ -28,36 +35,11 @@ class AdventureForm extends React.Component {
         const { title, photo, location, description, hashtags} = this.state
         return (
             <div>
-                {/* <form onSubmit={(e) => {
-                    this.props.submitNew(e, this.state)}} >
-                    
-                    <label>Title:</label>
-                    <input type="text" name="title" onChange={this.handleChange}/>
-
-                    <label>URL:</label>
-                    <input type="text" name="photo" onChange={this.handleChange}/>
-
-                    <label>Description:</label>
-                    <input type="text" name="description" onChange={this.handleChange}/>
-
-                    <label>Location</label>
-                    <input type="text" name="location" onChange={this.handleChange}/> 
-
-                    <label>Hashtags</label>
-                    <input type="text" name="hashtags" onChange={this.handleChange}/>
-
-                    <input type="submit" value="Submit" />
-                </form>  */}
-                {/* <Form.Input
-            placeholder='Name'
-            name='name'
-            value={name}
-            onChange={this.handleChange}
-          /> */}
-            <Grid centered>
+            <Grid >
                 <Grid.Column className="form-column">
                 <Card fluid>
                 <Card.Header className="create-header">Create New Post Here</Card.Header>
+                <br/>
                     <Form unstackable onSubmit={this.onSubmit}>
                         <Form.Group widths={2}>
                         <Form.Input
@@ -110,13 +92,13 @@ class AdventureForm extends React.Component {
 }
 
 
-// const panes = [
-//     { menuItem: 'Tab 1', pane: 'Tab 1 Content' },
-//     { menuItem: 'Tab 2', pane: 'Tab 2 Content' },
-//     { menuItem: 'Tab 3', pane: 'Tab 3 Content' },
-//   ]
+// // const panes = [
+// //     { menuItem: 'Tab 1', pane: 'Tab 1 Content' },
+// //     { menuItem: 'Tab 2', pane: 'Tab 2 Content' },
+// //     { menuItem: 'Tab 3', pane: 'Tab 3 Content' },
+// //   ]
   
-//   const TabExampleBasicAll = () => <Tab panes={panes} renderActiveOnly={false} />
+// //   const TabExampleBasicAll = () => <Tab panes={panes} renderActiveOnly={false} />
 
   
 
