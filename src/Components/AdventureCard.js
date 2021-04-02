@@ -23,6 +23,7 @@ export default class AdventureCard extends Component {
                             onClick={() => this.props.likeAdventure(this.props.adventure)}
                         >Like
                         </button>
+                        <button onClick={() => this.props.deleteAdv(this.props.adventure)}>DELETE</button>
                     </div>
                 </ul>  
             </div>

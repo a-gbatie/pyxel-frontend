@@ -131,5 +131,3 @@ class AdventureForm extends React.Component {
 
 export default AdventureForm;
 
-
-//(e, advData) => this.props.submitNew(e, advData)
