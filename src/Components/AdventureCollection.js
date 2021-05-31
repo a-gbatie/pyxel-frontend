@@ -1,5 +1,7 @@
 import React from 'react'
 import AdventureCard from './AdventureCard'
+import { Card } from 'semantic-ui-react'
+import './Form.css';
 
 class AdventureCollection extends React.Component {
 
@@ -15,8 +17,10 @@ class AdventureCollection extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.renderAdventures()}
+            <div className="collection-div">
+                <Card.Group itemsPerRow={3}>
+                    {this.renderAdventures()}
+                </Card.Group>
             </div>
         )
     }

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Form, Button, Grid } from 'semantic-ui-react'
-import Card from 'react-bootstrap/Card'
+import { Form } from 'semantic-ui-react'
+// import Card from 'react-bootstrap/Card'
 import './Form.css';
 
 
@@ -27,21 +27,17 @@ class AdventureForm extends React.Component {
 
     handleChange = (e) => {
         this.setState({
-            [e.target.name]: e.target.value 
+            [e.target.name]: e.target.value
         })
     }
 
     render() {
-        const { title, photo, location, description, hashtags} = this.state
+        const { title, photo, location, description, hashtags } = this.state
         return (
-            <div>
-            <Grid >
-                <Grid.Column className="form-column">
-                <Card fluid>
-                <Card.Header className="create-header">Create New Post Here</Card.Header>
-                <br/>
-                    <Form unstackable onSubmit={this.onSubmit}>
-                        <Form.Group widths={2}>
+            <div className="post-div">
+                <h3>Create New Post Here</h3>
+                <Form onSubmit={this.onSubmit}>
+                    <Form.Group widths={2}>
                         <Form.Input
                             label='Activity:'
                             placeholder='Enter an Activity'
@@ -56,51 +52,38 @@ class AdventureForm extends React.Component {
                             value={photo}
                             onChange={this.handleChange}
                         />
-                        </Form.Group>
+                    </Form.Group>
 
-                        <Form.Group widths={2}>
+                    <Form.Group widths={2}>
                         <Form.Input
                             label='Location:'
                             placeholder='Enter a Location'
                             name='location'
                             value={location}
                             onChange={this.handleChange}
-                            />
-                            <Form.Input
-                                label='Hashtags:'
-                                placeholder='Enter Hashtags'
-                                name='hashtags'
-                                value={hashtags}
-                                onChange={this.handleChange}
-                            />
-                            </Form.Group>
-                        <Form.TextArea
-                            label='Description:'
-                            placeholder='Enter a Description'
-                            name='description'
-                            value={description}
+                        />
+                        <Form.Input
+                            label='Hashtags:'
+                            placeholder='Enter Hashtags'
+                            name='hashtags'
+                            value={hashtags}
                             onChange={this.handleChange}
                         />
-                        <Button type='submit'>Submit</Button>
-                    </Form>
-                </Card>
-                </Grid.Column>
-            </Grid>
+                    </Form.Group>
+                    <Form.TextArea
+                        label='Description:'
+                        placeholder='Enter a Description'
+                        name='description'
+                        value={description}
+                        onChange={this.handleChange}
+                    />
+                    <Form.Button>Create Post</Form.Button>
+                </Form>
             </div>
         )
     }
 }
 
-
-// // const panes = [
-// //     { menuItem: 'Tab 1', pane: 'Tab 1 Content' },
-// //     { menuItem: 'Tab 2', pane: 'Tab 2 Content' },
-// //     { menuItem: 'Tab 3', pane: 'Tab 3 Content' },
-// //   ]
-  
-// //   const TabExampleBasicAll = () => <Tab panes={panes} renderActiveOnly={false} />
-
-  
 
 
 export default AdventureForm;

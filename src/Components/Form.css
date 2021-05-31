@@ -1,8 +1,8 @@
-.form-column{
+.post-div{
     max-width: 500px;
 }
 
-.create-header{
-    font-size: 25px;
-    font-weight: bold;
+
+.collection-div{
+    margin-top: 50px;
 }

@@ -3,6 +3,7 @@ import AdventureCollection from "./AdventureCollection.js";
 import Search from "./Search";
 import AdventureForm from "./AdventureForm";
 import Signup from './Signup'
+import { Container } from 'semantic-ui-react'
 
 const ADV = "http://localhost:3000/adventures";
 
@@ -136,14 +137,19 @@ class AdventurePage extends Component {
   render() {
     return (
       <div>
-        <Signup createUser={this.createUser}/> 
-        <AdventureForm submitNew={this.submitNew} />
-        <Search searchAdv={this.searchAdv} />
-        <AdventureCollection
-          adventures={this.state.searchedPost}
-          likeAdventure={this.likeAdventure}
-          deleteAdv={this.deleteAdv}
-        />
+        <Container>
+          <Search searchAdv={this.searchAdv} />
+          <br/>
+          <br/>
+          <Signup createUser={this.createUser}/> 
+          <AdventureForm submitNew={this.submitNew} />
+          <br/>
+          <AdventureCollection
+            adventures={this.state.searchedPost}
+            likeAdventure={this.likeAdventure}
+            deleteAdv={this.deleteAdv}
+          />
+        </Container>
       </div>
     );
   }
