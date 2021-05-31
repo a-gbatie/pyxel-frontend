@@ -13,11 +13,11 @@ render() {
             {/* <Link to="/" className="ui button">
               Home
             </Link> */}
-            <Link to="/login" className="ui button">
-              Login
+            <Link to="/" className="ui button">
+              Home
             </Link>
             <Link to="/signup" className="ui button">
-              Sign Up
+              Create User
             </Link>
             {/* <Link to="/create"className="ui button">
               Create Post

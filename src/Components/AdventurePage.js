@@ -136,7 +136,7 @@ class AdventurePage extends Component {
   render() {
     return (
       <div>
-        <Signup createUser={this.createUser}/> 
+        {/* <Signup createUser={this.createUser}/>  */}
         <AdventureForm submitNew={this.submitNew} />
         <Search searchAdv={this.searchAdv} />
         <AdventureCollection
